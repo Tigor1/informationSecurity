@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.stankin.informationSecurity.controllers.MainController">
+   <children>
+      <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" visible="false">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Main" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="100.0" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="loginPane" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="loginText" layoutX="396.0" layoutY="278.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="login" />
+            <RadioButton fx:id="userRBtn" layoutX="461.0" layoutY="191.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="99.0" text="user" AnchorPane.leftAnchor="461.0" AnchorPane.rightAnchor="520.0" />
+            <RadioButton fx:id="adminRBtn" layoutX="578.0" layoutY="191.0" mnemonicParsing="false" text="admin" AnchorPane.leftAnchor="578.0" />
+            <Button fx:id="loginBtn" layoutX="396.0" layoutY="377.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="300.0" text="sing in">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Text layoutX="507.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in" AnchorPane.leftAnchor="507.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="passwordText" layoutX="396.0" layoutY="327.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="password" />
+            <Text fx:id="errorText" layoutX="450.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="191.7294921875">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="adminPane" layoutX="396.0" layoutY="327.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+         <children>
+            <Text layoutY="-29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="admin" wrappingWidth="97.13232421875" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="100.0">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Text>
+            <TableView fx:id="listUsers" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="200.0">
+              <columns>
+                <TableColumn fx:id="nameT" prefWidth="200.0" text="name" />
+                  <TableColumn fx:id="blockT" prefWidth="100.0" text="block" />
+                  <TableColumn fx:id="restrictions" prefWidth="200.0" text="password restrictions" />
+              </columns>
+            </TableView>
+            <Button fx:id="addUserT" layoutX="767.0" layoutY="146.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addUser" prefHeight="30.0" prefWidth="150.0" text="add user" />
+            <Button fx:id="editUserBtn" layoutX="100.0" layoutY="455.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="edit user" />
+            <TextField fx:id="nameAddT" layoutX="100.0" layoutY="147.0" promptText="name" />
+            <PasswordField fx:id="passwordAddT" layoutX="289.0" layoutY="147.0" promptText="password" />
+            <CheckBox fx:id="blockAddC" layoutX="486.0" layoutY="151.0" mnemonicParsing="false" text="block">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="psswrdRAddC" layoutX="572.0" layoutY="151.0" mnemonicParsing="false" text="password restriction">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
