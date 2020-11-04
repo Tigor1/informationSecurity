@@ -9,21 +9,33 @@ import java.util.Objects;
 public class User {
     private String name;
     private String password = "qwerty";
-    private boolean isAdmin = false;
-    private boolean isBlocked = false;
-    private boolean isLimited = false;
+    private Status status = Status.FIRST;
+    private boolean restricted = false;
     private CheckBox blockCheck = new CheckBox();
-    private CheckBox limitedCheck = new CheckBox();
-    private boolean NeedChange = true;
+    private CheckBox restrictedCheck = new CheckBox();
 
-    public User(String name, String password, boolean isAdmin, boolean isBlocked, boolean isLimited) {
+    public User(String name, String password, User.Status status, boolean restricted) {
         this.name = name;
         this.password = password;
-        this.isAdmin = isAdmin;
-        this.isBlocked = isBlocked;
-        blockCheck.setSelected(isBlocked);
-        this.isLimited = isLimited;
-        limitedCheck.setSelected(isLimited);
+        this.status = status;
+        blockCheck.setSelected(status.equals(Status.BLOCK) || status.equals(Status.FIRST_AND_BLOCK));
+        this.restricted = restricted;
+        restrictedCheck.setSelected(restricted);
+
+        blockCheck.setOnAction(e-> {
+            if (this.status.equals(Status.FIRST)){
+                this.status = Status.FIRST_AND_BLOCK;
+            } else if (this.status.equals(Status.FIRST_AND_BLOCK)) {
+                this.status = Status.FIRST;
+            }else if (this.status.equals(Status.USER)) {
+                this.status = Status.BLOCK;
+            } else if (this.status.equals(Status.BLOCK)) {
+                this.status = Status.USER;
+            }
+        });
+        restrictedCheck.setOnAction(e->{
+            this.restricted = !this.restricted;
+        });
     }
 
     @Override
@@ -39,13 +51,21 @@ public class User {
         return Objects.hash(name);
     }
 
-    public void setBlocked(boolean blocked) {
-        isBlocked = blocked;
-        blockCheck.setSelected(blocked);
+    public void setStatus(Status status) {
+        this.status = status;
+        blockCheck.setSelected(status.equals(Status.BLOCK));
     }
 
-    public void setLimited(boolean limited) {
-        isLimited = limited;
-        limitedCheck.setSelected(!limited);
+    public void setRestricted(boolean restricted) {
+        this.restricted = restricted;
+        restrictedCheck.setSelected(restricted);
+    }
+
+    public enum Status {
+        ADMIN,
+        USER,
+        FIRST,
+        BLOCK,
+        FIRST_AND_BLOCK;
     }
 }

@@ -16,7 +16,12 @@
    <children>
       <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" visible="false">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Main" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="100.0" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Main" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="100.0">
+               <font>
+                  <Font size="26.0" />
+               </font></Text>
+            <Button fx:id="mainSignOutBtn" layoutX="978.0" layoutY="25.0" mnemonicParsing="false" text="Sign out" />
+            <Button fx:id="mainAdminBtn" layoutX="909.0" layoutY="25.0" mnemonicParsing="false" text="admin" visible="false" />
          </children></AnchorPane>
       <AnchorPane fx:id="loginPane" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -56,7 +61,7 @@
               </columns>
             </TableView>
             <Button fx:id="addUserT" layoutX="767.0" layoutY="146.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addUser" prefHeight="30.0" prefWidth="150.0" text="add user" />
-            <Button fx:id="editUserBtn" layoutX="100.0" layoutY="455.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="edit user" />
+            <Button fx:id="editUserBtn" layoutX="100.0" layoutY="412.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#saveUsers" prefHeight="30.0" prefWidth="150.0" text="save" />
             <TextField fx:id="nameAddT" layoutX="100.0" layoutY="147.0" promptText="name" />
             <PasswordField fx:id="passwordAddT" layoutX="289.0" layoutY="147.0" promptText="password" />
             <CheckBox fx:id="blockAddC" layoutX="486.0" layoutY="151.0" mnemonicParsing="false" text="block">
@@ -69,6 +74,27 @@
                   <Font size="14.0" />
                </font>
             </CheckBox>
+            <Button fx:id="adminSignOutBtn" layoutX="984.0" layoutY="13.0" mnemonicParsing="false" text="Sign out" />
+            <Button fx:id="adminHomeBtn" layoutX="917.0" layoutY="13.0" mnemonicParsing="false" text="home" />
+            <Text fx:id="adminErrorT" layoutX="767.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="changePasswdPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="350.0" visible="false">
+         <children>
+            <Button fx:id="changePasswdBtn" layoutX="86.0" layoutY="176.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="change passowrd">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="changePasswd1" layoutX="86.0" layoutY="95.0" prefHeight="30.0" prefWidth="200.0" promptText="password" AnchorPane.leftAnchor="86.0" AnchorPane.topAnchor="95.0" />
+            <Text fx:id="changePasswdInfoT" fill="#bc2828" layoutX="8.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password must contains cirilic, latinic, punctuation symbols" textAlignment="CENTER" visible="false" wrappingWidth="335.0" />
+            <PasswordField fx:id="changePasswd2" layoutX="86.0" layoutY="137.0" prefHeight="30.0" prefWidth="200.0" promptText="repeat" AnchorPane.leftAnchor="86.0" AnchorPane.topAnchor="137.0" />
+            <Text layoutX="95.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="change password" textAlignment="CENTER" wrappingWidth="161.7294921875">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="changePasswdErrorT" fill="#f20a0a" layoutX="172.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" />
          </children>
       </AnchorPane>
    </children>
